@@ -1,7 +1,5 @@
 <?php 
 
-namespace App;
-
 class App
 {
 	/**
@@ -22,6 +20,6 @@ class App
 	 */
 	public function run()
 	{
-		echo "Hellow CMS!";
+		print_r($this->di->get('test1'));
 	}
 }

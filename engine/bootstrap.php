@@ -10,6 +10,12 @@ try {
 	// Dependency injaction
 	$di = new DI();
 
+	// test 
+	$di->set('test1', ['db' => 'db_object']);
+	$di->set('test2', ['mail' => 'mail_object']);
+	
+	// --- 
+
 	$app = new App($di);
 	$app->run();
 
