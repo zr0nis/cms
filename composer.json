@@ -1,0 +1,17 @@
+{
+    "name": "zronis/cms",
+    "authors": [
+        {
+            "name": "zr0nis",
+            "email": "zromirwk@gmai.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Engine\\":"engine",
+            "Engine\\DI\\":"engine/DI",
+            "App\\":"app"
+        }
+    },
+    "require": {}
+}
