@@ -1,5 +1,7 @@
 <?php 
 
+namespace App;
+
 class App
 {
 	/**
@@ -10,9 +12,10 @@ class App
 	/**
 	 * @param DI
 	 */
-	public function __constuct($di)
+	
+	public function __construct($di)
 	{
-		$this->$di = $di;
+		$this->di = $di;
 	}
 
 	/**

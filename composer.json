@@ -1,17 +1,24 @@
 {
     "name": "zronis/cms",
+    "license": "MIT",
     "authors": [
         {
             "name": "zr0nis",
             "email": "zromirwk@gmai.com"
         }
     ],
+    "minimum-stability": "dev",
+    "require": {},
+    "require-dev": {},
     "autoload": {
         "psr-4": {
-            "Engine\\":"engine",
-            "Engine\\DI\\":"engine/DI",
-            "App\\":"app"
+            "App\\": "app/",
+            "Engine\\DI\\": "engine/DI/"
         }
     },
-    "require": {}
+    "autoload-dev": {
+        "psr-4": {
+
+        }
+    }
 }

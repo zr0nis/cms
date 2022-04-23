@@ -1,8 +1,9 @@
 <?php 
+
 namespace Engine\DI;
 
 /**
- * 
+ * Dependency injaction
  */
 class DI
 {
