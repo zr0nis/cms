@@ -11,12 +11,17 @@ try {
 	// Dependency injaction
 	$di = new DI();
 
+	$services = require_once __DIR__ . 'Config/Service.php';
+
+	// Services init
+	foreach ($services as service)
+	{
+		$provider = new $service($di);
+		$provider->init();
+	}
+
 	$app = new App($di);
 	$app->run();
-
-	// <Test> 
-	
-	//</Test>
 
 } catch (\ErrorException $e) {
 	echo $e->getMassage();

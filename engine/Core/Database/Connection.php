@@ -2,6 +2,7 @@
 
 namespace Engine\Core\Database;
 
+use \PDO;
 
 class Connection
 {
@@ -31,7 +32,7 @@ class Connection
 			.	';dbname='		. $config['db_name'] 
 			.	';charset='		. $config['charset'];
 		
-		$this->link = new \PDO($dsn, $config['username'], $config['password']);
+		$this->link = new PDO($dsn, $config['username'], $config['password']);
 
 		return $this;
 	}
@@ -61,7 +62,7 @@ class Connection
 	{
 		$exec = $this->execute($sql);
 		
-		$result = $exec->fetchAll(\PDO::FETCH_ASSOC);
+		$result = $exec->fetchAll(PDO::FETCH_ASSOC);
 
 		if($result === false)
 		{
