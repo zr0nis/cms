@@ -15,33 +15,33 @@ class DI
 	
 	/**
 	 * Set dependence
-	 * @param	$kay
+	 * @param	$key
 	 * @param	$value
 	 * @return	$this
 	 */
-	public function set($kay, $value)
+	public function set($key, $value)
 	{
-		$this->container[$kay] = $value;
+		$this->container[$key] = $value;
 	}
 
 	/**
 	 * Get dependence
-	 * @param	$kay
+	 * @param	$key
 	 * @return	bool/mixed [null/ dependence array]
 	 */
-	public function get($kay)
+	public function get($key)
 	{
-		return $this->has($kay);
+		return $this->has($key);
 	}
 
 	/**
 	 * Checking key existence
-	 * @param	$kay
+	 * @param	$key
 	 * @return	bool/mixed [null/ dependence array]
 	 */
-	public function has($kay)
+	public function has($key)
 	{
-		return isset($this->container[$kay]) ? $this->container[$kay] : null;
+		return isset($this->container[$key]) ? $this->container[$key] : null;
 	}
 
 }
