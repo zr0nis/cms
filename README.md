@@ -1,2 +1,2 @@
 # CMS
-my cms project for OOP practicle
+my cms project from scratch for OOP practice

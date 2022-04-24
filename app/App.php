@@ -5,14 +5,13 @@ namespace App;
 class App
 {
 	/**
-	 * @var DI
+	 * @var DI container
 	 */
 	private $di;
 
 	/**
-	 * @param DI
+	 * @param DI container
 	 */
-	
 	public function __construct($di)
 	{
 		$this->di = $di;
@@ -23,6 +22,6 @@ class App
 	 */
 	public function run()
 	{
-		print_r($this->di->get('test1'));
+
 	}
 }
