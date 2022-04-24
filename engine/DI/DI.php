@@ -8,13 +8,13 @@ namespace Engine\DI;
 class DI
 {
 	/**
-	 * [DI container]
+	 * DI container
 	 * @var	array
 	 */
 	private $container = [];
 	
 	/**
-	 * [Set dependence]
+	 * Set dependence
 	 * @param	$kay
 	 * @param	$value
 	 * @return	$this
@@ -25,7 +25,7 @@ class DI
 	}
 
 	/**
-	 * [Get dependence]
+	 * Get dependence
 	 * @param	$kay
 	 * @return	bool/mixed [null/ dependence array]
 	 */
@@ -35,7 +35,7 @@ class DI
 	}
 
 	/**
-	 * [Checking key existence]
+	 * Checking key existence
 	 * @param	$kay
 	 * @return	bool/mixed [null/ dependence array]
 	 */
