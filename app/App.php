@@ -2,6 +2,8 @@
 
 namespace App;
 
+use Engine\Helper\Common;
+
 class App
 {
 	/**
@@ -28,6 +30,7 @@ class App
 	 */
 	public function run()
 	{
-		print_r($this->di);
+		$routerDispatch = $this->router->dispatch(Common::getMethod(), Common::getPathUrl());
+		print_r($routerDispatch);
 	}
 }
