@@ -1,6 +1,6 @@
 <?php 
 
-namespace Engine\Serveice;
+namespace Engine\Service;
 
 
 
@@ -15,7 +15,7 @@ abstract class AbstractProvider
 	 * [AbstractProvider constructor]
 	 * @param Engine\DI\Di $di
 	 */
-	function __construct(Engine\DI\Di $di)
+	function __construct(\Engine\DI\Di $di)
 	{
 		$this->di = $di;
 	}

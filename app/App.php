@@ -22,6 +22,6 @@ class App
 	 */
 	public function run()
 	{
-
+		print_r($this->di);
 	}
 }

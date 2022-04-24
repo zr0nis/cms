@@ -1,8 +1,8 @@
 <?php 
 
-namespace Engine\Serveice\Database;
+namespace Engine\Service\Database;
 
-use Engine\Serveice\AbstractProvider;
+use Engine\Service\AbstractProvider;
 use Engine\Core\Database\Connection;
 
 

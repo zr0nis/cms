@@ -4,17 +4,16 @@ require_once (__DIR__ . '/../vendor/autoload.php');
 
 use App\App;
 use Engine\DI\DI;
-use Engine\Core\Database\Connection;
 
 try {
 
 	// Dependency injaction
 	$di = new DI();
 
-	$services = require_once __DIR__ . 'Config/Service.php';
+	$services = require __DIR__ . '/Config/Service.php';
 
 	// Services init
-	foreach ($services as service)
+	foreach ($services as $service)
 	{
 		$provider = new $service($di);
 		$provider->init();

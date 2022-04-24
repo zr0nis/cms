@@ -14,7 +14,9 @@
         "psr-4": {
             "App\\": "app/",
             "Engine\\DI\\": "engine/DI/",
-            "Engine\\Core\\Database\\":"engine/Core/Database/"
+            "Engine\\Core\\Database\\":"engine/Core/Database/",
+            "Engine\\Service\\":"engine/Service/",
+            "Engine\\Service\\Database\\":"engine/Service/Database/"
         }
     },
     "autoload-dev": {

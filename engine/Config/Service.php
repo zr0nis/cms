@@ -1,6 +1,5 @@
 <?php 
 
 return [
-
-	Engine\Servece\Database\Provider::class
+	Engine\Service\Database\Provider::class
 ];
