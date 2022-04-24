@@ -5,16 +5,22 @@ namespace App;
 class App
 {
 	/**
-	 * @var DI container
+	 * @var Engine\DI\DI DI container
 	 */
 	private $di;
 
 	/**
-	 * @param DI container
+	 * @var Engine\Core\Router\Router
+	 */
+	public $router;
+
+	/**
+	 * @param Engine\DI\DI DI container
 	 */
 	public function __construct($di)
 	{
 		$this->di = $di;
+		$this->router = $this->di->get('router');
 	}
 
 	/**

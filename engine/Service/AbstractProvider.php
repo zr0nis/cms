@@ -12,7 +12,7 @@ abstract class AbstractProvider
 	protected $di;
 
 	/**
-	 * [AbstractProvider constructor]
+	 * AbstractProvider constructor
 	 * @param Engine\DI\Di $di
 	 */
 	function __construct(\Engine\DI\Di $di)
@@ -21,8 +21,7 @@ abstract class AbstractProvider
 	}
 
 	/**
-	 * [New sercice init]
-	 * @return mixed
+	 * New service init
 	 */
 	abstract function init();
 }

@@ -12,7 +12,7 @@ class Connection
 	private $link;
 
 	/**
-	 *  [Connection constructor]
+	 *  Connection constructor
 	 */
 	function __construct()
 	{
@@ -20,7 +20,7 @@ class Connection
 	}
 
 	/**
-	 * [Make connection]
+	 * Make connection
 	 * @return $this 
 	 */
 	private function connect()
@@ -38,7 +38,7 @@ class Connection
 	}
 
 	/**
-	 * [SQL execution]
+	 * SQL execution
 	 * @param  string $sql [request identifier]
 	 * @var PDOStatement $sth [prepared request identifier object]
 	 * @return PDOStatement $sth [executed request identifier object]
@@ -53,7 +53,7 @@ class Connection
 	}
 
 	/**
-	 * [Query return]
+	 * Query return
 	 * @param  sring $sql [request identifier]
 	 * @var PDOStatement $exec [executed request identifier object]
 	 * @return array [request ? assoc_array : []]

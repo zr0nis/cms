@@ -13,7 +13,9 @@ class Provider extends AbstractProvider
 	 */
 	public $serviceName = 'db';
 
-	
+	/**
+	 * New Database service init
+	 */
 	public function init()
 	{
 		$db = new Connection();
