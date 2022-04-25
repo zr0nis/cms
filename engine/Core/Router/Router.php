@@ -32,7 +32,7 @@ class Router
 	 * adder for @routes
 	 * @param string $key        
 	 * @param string $pattern    
-	 * @param App\Controller\* $controller 
+	 * @param string $controller 
 	 * @param string $method     
 	 */
 	public function add($key, $pattern, $controller, $method = 'GET')

@@ -16,7 +16,7 @@ class DispadchetRoute
 
 	/**
 	 * DispadchetRoute constructor 
-	 * @param App\Controller\* $controller
+	 * @param str $controller
 	 * @param array  $parameters
 	 */
 	function __construct($controller, $parameters = [])
@@ -38,6 +38,6 @@ class DispadchetRoute
 	 */
 	public function getParameters()
 	{
-		$this->parameters;
+		return $this->parameters;
 	}
 }

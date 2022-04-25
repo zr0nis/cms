@@ -54,14 +54,58 @@ class UrlDispatcher
 	}
 
 	/**
-	 * Registration new route in $routes
+	 * Registration new urn in $routes
 	 * @param  str $method [GET, POST, ...]
-	 * @param  Regex $pattern
-	 * @param  App\Controller\* $controller
+	 * @param  str $pattern [urn -> regex]
+	 * @param  str $controller
 	 */
 	public function register($method, $pattern, $controller)
 	{
+		$pattern = $this->convertPattern($pattern);
 		$this->routes[strtoupper($method)][$pattern] = $controller;
+	}
+
+	/**
+	 * Detection & processing params in uri
+	 * @param  [type] $pattern
+	 * @return [type]
+	 */
+	private function convertPattern($pattern)
+	{
+		if (strpos($pattern, '(') === false)
+		{
+			return $pattern;
+		}
+
+		return preg_replace_callback('#\((\w+):(\w+)\)#', [$this, 'replacePattern'], $pattern);
+	}
+
+	/**
+	 * Callback func for $self->convertPattern
+	 * Replacing pattern on param
+	 * @param  array $matches
+	 * @return str
+	 */
+	private function replacePattern($matches)
+	{
+		return '(?<' . $matches[1] . '>' . strtr($matches[2], $this->patterns) . ')';
+	}
+
+	/**
+	 * Unset int keys in $parameters
+	 * @param  array $parameters
+	 * @return array $parameters
+	 */
+	private function processParam($parameters)
+	{
+		foreach ($parameters as $key => $param)
+		{
+			if (is_int($key))
+			{
+				unset($parameters[$key]);
+			}
+		}
+		return $parameters;
 	}
 
 	/**
@@ -79,11 +123,11 @@ class UrlDispatcher
 			return new DispadchetRoute($routes[$uri]);
 		}
 
-		$this->doDispatch($method, $uri);
+		return $this->doDispatch($method, $uri);
 	}
 
 	/**
-	 * Forced make new route object
+	 * Make new route object with parameters from regex
 	 * @param  str $method [GET, POST, ...]
 	 * @param  str $uri
 	 * @return Engine\Core\Router\DispadchetRoute object
@@ -96,7 +140,7 @@ class UrlDispatcher
 
 			if (preg_match($pattern, $uri, $parameters))
 			{
-				return new DispadchetRoute($controller, $parameters);
+				return new DispadchetRoute($controller, $this->processParam($parameters));
 			}
 		}
 	}
