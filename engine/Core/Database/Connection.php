@@ -14,20 +14,18 @@ class Connection
 	/**
 	 *  Connection constructor
 	 */
-	function __construct()
+	function __construct($config)
 	{
-		$this->connect();
+		$this->connect($config);
 	}
 
 	/**
 	 * Make connection
+	 * @param array $config
 	 * @return $this 
 	 */
-	private function connect()
-	{
-		//  todo
-		$config = require_once 'config.php';
-		
+	private function connect($config)
+	{	
 		$dsn = 	'mysql:host='	. $config['host'] 
 			.	';dbname='		. $config['db_name'] 
 			.	';charset='		. $config['charset'];

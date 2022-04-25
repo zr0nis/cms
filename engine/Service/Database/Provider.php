@@ -18,7 +18,8 @@ class Provider extends AbstractProvider
 	 */
 	public function init()
 	{
-		$db = new Connection();
+		$config = require __DIR__ . '/../../Config/Database.php';
+		$db = new Connection($config);
 
 		$this->di->set($this->serviceName, $db);
 	}
