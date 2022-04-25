@@ -36,7 +36,7 @@ class UrlDispatcher
 	/**
 	 * Set new pattern in $patterns
 	 * @param str $key    
-	 * @param str $pattern
+	 * @param regex $pattern
 	 */
 	public function addPattern($key, $pattern)
 	{
@@ -54,11 +54,10 @@ class UrlDispatcher
 	}
 
 	/**
-	 * [register description]
+	 * Registration new route in $routes
 	 * @param  str $method [GET, POST, ...]
 	 * @param  Regex $pattern
-	 * @param  [type] $controller [description]
-	 * @return [type]             [description]
+	 * @param  App\Controller\* $controller
 	 */
 	public function register($method, $pattern, $controller)
 	{
@@ -66,23 +65,39 @@ class UrlDispatcher
 	}
 
 	/**
-	 * [dispatch description]
+	 * Return new route object
 	 * @param  str $method [GET, POST, ...]
 	 * @param  str $uri
 	 * @return Engine\Core\Router\DispadchetRoute object
 	 */
 	public function dispatch($method, $uri)
 	{
-		$routes = $this->routes(strtoupper($method));
+		$routes = $this->routes[strtoupper($method)];
 
 		if (array_key_exists($uri, $routes))
 		{
-			return new DispadchetRoute($routes[$uri])
+			return new DispadchetRoute($routes[$uri]);
 		}
+
+		$this->doDispatch($method, $uri);
 	}
 
+	/**
+	 * Forced make new route object
+	 * @param  str $method [GET, POST, ...]
+	 * @param  str $uri
+	 * @return Engine\Core\Router\DispadchetRoute object
+	 */
 	private function doDispatch($method, $uri)
 	{
-		// code...
+		foreach ($this->routes[$method] as $route => $controller)
+		{
+			$pattern = '#^' . $route . '$#s';
+
+			if (preg_match($pattern, $uri, $parameters))
+			{
+				return new DispadchetRoute($controller, $parameters);
+			}
+		}
 	}
 }

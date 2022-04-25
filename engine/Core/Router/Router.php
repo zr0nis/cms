@@ -5,7 +5,7 @@ namespace Engine\Core\Router;
 class Router
 {
 	/**
-	 * @var array
+	 * @var array str
 	 */
 	private $routes = [];
 	
@@ -19,13 +19,22 @@ class Router
 	 */
 	private $dispatcher;
 
-	
+	/**
+	 * Router constructor
+	 * @param string $host
+	 */
 	function __construct($host)
 	{
 		$this->host = $host;
 	}
 
-	
+	/**
+	 * adder for @routes
+	 * @param string $key        
+	 * @param string $pattern    
+	 * @param App\Controller\* $controller 
+	 * @param string $method     
+	 */
 	public function add($key, $pattern, $controller, $method = 'GET')
 	{
 		$this->routes[$key] = [
@@ -36,10 +45,10 @@ class Router
 	}
 
 	/**
-	 * [dispatch description]
+	 * Dispatch new route
 	 * @param  str $method [GET, POST, ...]
-	 * @param  str $uri    [description]
-	 * @return Engine\Core\Router\UrlDispatcher [with reqistred routes]
+	 * @param  str $uri    
+	 * @return Engine\Core\Router\DispadchetRoute object
 	 */
 	public function dispatch($method, $uri)
 	{
@@ -47,7 +56,7 @@ class Router
 	}
 
 	/**
-	 * [getDispatcher description]
+	 * Dispatcher ? Dispatcher : new Dispatcher
 	 * @return Engine\Core\Router\UrlDispatcher [with reqistred routes]
 	 */
 	public function getDispatcher()
@@ -63,6 +72,6 @@ class Router
 			}
 		}
 
-		return $this->dispatcher;	
+		return $this->dispatcher;
 	}
 }

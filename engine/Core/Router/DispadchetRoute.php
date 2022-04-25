@@ -5,7 +5,7 @@ namespace Engine\Core\Router;
 class DispadchetRoute
 {
 	/**
-	 * @var str
+	 * @var App\Controller\*
 	 */
 	private $controller;
 	
@@ -16,7 +16,7 @@ class DispadchetRoute
 
 	/**
 	 * DispadchetRoute constructor 
-	 * @param s$controller
+	 * @param App\Controller\* $controller
 	 * @param array  $parameters
 	 */
 	function __construct($controller, $parameters = [])
