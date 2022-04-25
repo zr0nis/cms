@@ -9,7 +9,10 @@ abstract class AbstractController
 	 */
 	protected $di;
 
-	// protected $db;
+	/**
+	 * @var Engine\Core\Template\View
+	 */
+	protected $view;
 
 	/**
 	 * AbstractController constructor
@@ -18,6 +21,7 @@ abstract class AbstractController
 	function __construct(\Engine\DI\Di $di)
 	{
 		$this->di = $di;
+		$this->view = $di->get('view');
 	}
 
 }

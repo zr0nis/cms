@@ -34,7 +34,7 @@ class App
 	{
 		try 
 		{
-			require_once 'Routes.php';
+			require_once 'routes.php';
 			
 			// --------
 			
@@ -68,7 +68,7 @@ class App
 
 			// -------- 
 						
-		} catch (Exception $e) {
+		} catch (\Exception $e) {
 			echo "Exception in \app\App.php:run():route<br>";
 			echo $e->getMassage();
 			exit;
