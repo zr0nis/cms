@@ -13,7 +13,8 @@ class View
 	public function render($template, $vars = [])
 	{
 		// todo
-		$templatePath =  __DIR__ . '/../../../content/themes/' . $template . '.php';
+		$templatePath =  __DIR__ . '/../../../content/themes/' . $template . '/main.php';
+		// ---
 
 		if (!is_file($templatePath))
 		{

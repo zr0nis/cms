@@ -7,8 +7,10 @@ class HomeController extends AbstractController
 	
 	public function index()
 	{
-		$vars = ['name' => 'username'];
-		$this->view->render('default/example', $vars);
+		//todo
+		$theme = 'defailt';
+
+		$this->view->render($theme, $vars);
 	}
 
 }
