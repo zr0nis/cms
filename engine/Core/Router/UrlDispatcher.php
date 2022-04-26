@@ -98,7 +98,7 @@ class UrlDispatcher
 	 */
 	private function processParam($parameters)
 	{
-		foreach ($parameters as $key => $param)
+		foreach ($parameters as $key)
 		{
 			if (is_int($key))
 			{

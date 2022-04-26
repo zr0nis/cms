@@ -33,25 +33,23 @@ class App
 	public function run()
 	{
 		try 
-		{
-			require_once 'routes.php';
-			
+		{			
 			// --------
 			
 			/**
 			 * dispatch current route
-			 * @var Engine\Core\Router\DispadchetRoute $routerDispatch
+			 * @var Engine\Core\Router\DispadchetRoute $dispadchetRoute
 			 */
-			$routerDispatch = $this->router->dispatch(Common::getMethod(), Common::getPathUrl());
+			$dispadchetRoute = $this->router->dispatch(Common::getMethod(), Common::getPathUrl());
 			
 			// --------
 			
 			/**
 			 * if page dont exist show 404
 			 */
-			if ($routerDispatch == null)
+			if ($dispadchetRoute == null)
 			{
-				$routerDispatch = new DispadchetRoute('ErrorController:page404');
+				$dispadchetRoute = new DispadchetRoute('ErrorController:page404');
 			}
 			
 			// --------
@@ -59,10 +57,10 @@ class App
 			/**
 			 * show routed page from controller
 			 */
-			list($class, $action) = explode(':', $routerDispatch->getController(), 2);
+			list($class, $action) = explode(':', $dispadchetRoute->getController(), 2);
 
 			$controller = '\\App\\Controller\\' . $class;
-			$parameters = $routerDispatch->getParameters();
+			$parameters = $dispadchetRoute->getParameters();
 
 			call_user_func_array([new $controller($this->di), $action], $parameters);
 

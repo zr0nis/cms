@@ -7,7 +7,7 @@ class ErrorController extends AbstractController
 	
 	public function page404()
 	{
-		echo "page404";
+		echo 'page 404';
 	}
 
 }

@@ -33,9 +33,9 @@ class Router
 	 * @param string $key        
 	 * @param string $pattern    
 	 * @param string $controller 
-	 * @param string $method     
+	 * @param string $method [GET default]
 	 */
-	public function add($key, $pattern, $controller, $method = 'GET')
+	public function add($key, $pattern, $controller, $method)
 	{
 		$this->routes[$key] = [
 			'pattern'		=> $pattern,

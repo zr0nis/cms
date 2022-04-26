@@ -18,7 +18,19 @@ class Provider extends AbstractProvider
 	 */
 	public function init()
 	{
-		$router = new Router('http://cms.zro/');
+		$config = require __DIR__ . '/../../Config/Routes.php';
+		
+		$router = new Router($config['host']);
+
+		foreach ($config['routes'] as $key => $value) {
+			
+			$router->add(
+				$key, 
+				$value['pattern'], 
+				$value['controller'], 
+				array_key_exists('method', $value) ?  $value['method'] : 'GET'
+			);
+		}
 
 		$this->di->set($this->serviceName, $router);
 	}
