@@ -4,27 +4,34 @@ namespace Engine\Core\Template;
 
 class View
 {
+	protected $theme;
 	
 	function __construct()
 	{
-		// code...
+		$this->theme = new Theme();
 	}
 
 	public function render($template, $vars = [])
 	{
 		// todo
-		$templatePath =  __DIR__ . '/../../../content/themes/' . $template . '/main.php';
+		$this->theme->pathToTheme = __DIR__ . '/../../../content/themes/' . $template;
+		$templatePath = $this->theme->pathToTheme . '/main.php';
 		// ---
 
+		// ---
+		
 		if (!is_file($templatePath))
 		{
 			throw new \InvalidArgumentException(
-				sprintf('Temlate "%s" not found in "%s"', $template, $templatePath)
-			);
-			
+				sprintf('Temlate "%s" not found in "%s"', $template, $templatePath));	
 		}
 
+		// ---
+		
+		$this->theme->setVars($vars);
 		extract($vars);
+
+		// ---
 
 		ob_start();
 		ob_implicit_flush(0);

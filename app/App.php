@@ -67,8 +67,7 @@ class App
 			// -------- 
 						
 		} catch (\Exception $e) {
-			echo "Exception in \app\App.php:run():route<br>";
-			echo $e->getMassage();
+			echo $e->getMessage();
 			exit;
 		}
 	}

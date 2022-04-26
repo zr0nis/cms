@@ -7,12 +7,15 @@
 </head>
 <body>
 
-Index template
+Index template<br>
+<?= $this->theme->header('',['vartest'=>'string'])?><br>
+<?= $this->theme->sidebar('',['vartest'=>'varbar'])?><br>
+<?= $this->theme->block('block1')?><br>
+<?= $this->theme->block('block2')?><br>
+<?= $this->theme->footer('red-black')?><br>
+<?=$name?><br>
+<?=$status?>
 
-<?= $vars['name']?>
 	
 </body>
 </html>
-
-
-

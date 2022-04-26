@@ -7,9 +7,16 @@ class HomeController extends AbstractController
 	
 	public function index()
 	{
-		//todo
-		$theme = 'defailt';
-
+		//todo ^ >AbstractController
+		$theme = 'default';
+		
+		// todo
+		$vars = [
+			'name' => 'Jhon',
+			'status' => 'whealthy'
+		];
+		// ---
+			
 		$this->view->render($theme, $vars);
 	}
 

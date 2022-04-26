@@ -17,7 +17,7 @@ class Provider extends AbstractProvider
 	 * New View temletes service init
 	 */
 	public function init()
-	{
+	{		
 		$view = new View();
 
 		$this->di->set($this->serviceName, $view);
