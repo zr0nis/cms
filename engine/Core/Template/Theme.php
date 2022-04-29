@@ -16,18 +16,35 @@ class Theme
 	 */
 	public $pathToTheme = '';
 
+	/**
+	 * user data
+	 * @var array
+	 */
 	protected $vars = [];
 	
+	/**
+	 * $vars getter
+	 * @return array
+	 */
 	public function getVars()
 	{
 		return $this->vars;
 	}
 
+	/**
+	 * $vars setter
+	 * @param array
+	 */
 	public function setVars($vars)
 	{
 		$this->vars = $vars;
 	}
 
+	/**
+	 * View header block
+	 * @param  string $name [header-$name.php]
+	 * @param  array  $data [user data]
+	 */
 	public function header(string $name = '', $data = [])
 	{
 		$file = 'header';
@@ -40,9 +57,13 @@ class Theme
 		$this->loadTemplateFile($file, $data);
 	}
 
+	/**
+	 * View footer block
+	 * @param  string $name [footer-$name.php]
+	 * @param  array  $data [user data]
+	 */
 	public function footer(string $name = '', $data = [])
 	{
-		// $name = (string) $name;
 		$file = 'footer';
 
 		if ($name != '')
@@ -53,6 +74,11 @@ class Theme
 		$this->loadTemplateFile($file, $data);
 	}
 
+	/**
+	 * View sidebar block
+	 * @param  string $name [sidebar-$name.php]
+	 * @param  array  $data [user data]
+	 */
 	public function sidebar(string $name = '', $data = [])
 	{
 		$file = 'sidebar';
@@ -65,11 +91,21 @@ class Theme
 		$this->loadTemplateFile($file, $data);
 	}
 
+	/**
+	 * View block
+	 * @param  string $name [$name.php]
+	 * @param  array  $data [user data]
+	 */
 	public function block(string $name, $data = [])
 	{
 		$this->loadTemplateFile($name, $data);
 	}
 
+	/**
+	 * Require file $namefile & extract vars form $data
+	 * @param  str $nameFile
+	 * @param  array $data
+	 */
 	private function loadTemplateFile($nameFile, $data)
 	{
 		$templateFile = $this->pathToTheme . '/' . $nameFile . '.php';
@@ -78,7 +114,7 @@ class Theme
 		{
 			extract($this->vars);
 			$data != [] ? extract($data) : null;
-			require_once $templateFile;
+			require $templateFile;
 		}
 		else
 		{
