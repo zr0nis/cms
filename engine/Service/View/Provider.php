@@ -3,7 +3,7 @@
 namespace Engine\Service\View;
 
 use Engine\Service\AbstractProvider;
-use Engine\Core\Template\View;
+use Engine\Core\View\View;
 
 
 class Provider extends AbstractProvider

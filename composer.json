@@ -14,9 +14,10 @@
         "psr-4": {
             "App\\": "app/",
             "App\\Controller\\": "app/Controller/",
+            "App\\Controller\\": "app/Controller/Admin/",
             "Engine\\Core\\Database\\":"engine/Core/Database/",
             "Engine\\Core\\Router\\":"engine/Core/Router/",
-            "Engine\\Core\\Template\\":"engine/Core/Template/",
+            "Engine\\Core\\View\\":"engine/Core/View/",
             "Engine\\DI\\": "engine/DI/",
             "Engine\\Helper\\": "engine/Helper/",
             "Engine\\Service\\":"engine/Service/",

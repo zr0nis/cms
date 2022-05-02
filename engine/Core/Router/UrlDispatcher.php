@@ -88,7 +88,7 @@ class UrlDispatcher
 	 */
 	private function replacePattern($matches)
 	{
-		return '(?<' . $matches[1] . '>' . strtr($matches[2], $this->patterns) . ')';
+		return '(?<' . $matches[2] . '>' . strtr($matches[1], $this->patterns) . ')';
 	}
 
 	/**
@@ -98,7 +98,7 @@ class UrlDispatcher
 	 */
 	private function processParam($parameters)
 	{
-		foreach ($parameters as $key)
+		foreach ($parameters as $key => $value)
 		{
 			if (is_int($key))
 			{
@@ -137,9 +137,8 @@ class UrlDispatcher
 		foreach ($this->routes[$method] as $route => $controller)
 		{
 			$pattern = '#^' . $route . '$#s';
-
 			if (preg_match($pattern, $uri, $parameters))
-			{
+			{	
 				return new DispadchetRoute($controller, $this->processParam($parameters));
 			}
 		}

@@ -7,17 +7,20 @@ class HomeController extends AbstractController
 	
 	public function index()
 	{
-		//todo ^ >AbstractController
-		$theme = 'default';
-		
-		// todo
-		$vars = [
-			'name' => 'Jhon',
-			'status' => 'whealthy'
+		$data = [
+			'title' => 'Title',
+			'name' => 'Jone',
+			'var1' => 'lorem',
+			'var2' => 'ipsum'
 		];
-		// ---
-			
-		$this->view->render($theme, $vars);
+
+		$pathToPage = ROOT_DIR . 'content/views/example_page.php';
+		
+		$this->view->viewPage($pathToPage, $data);
+	}
+	public function test($id)
+	{
+		echo "page " . $id;
 	}
 
 }
